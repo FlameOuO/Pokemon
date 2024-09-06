@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import PokemonGallery from './PokemonGallery';
-import PokemonDetails from './PokemonDetails';
+import PokemonGallery from './component/PokemonGallery';
+import PokemonDetails from './component/PokemonDetails';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -33,6 +33,14 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (selectedPokemon) {
+      const updatedSelected = pokemon.find(p => p.name === selectedPokemon.name);
+      if (updatedSelected) {
+        setSelectedPokemon(updatedSelected);
+      }
+    }
+  }, [pokemon, selectedPokemon]);
 
   return (
     <div>
