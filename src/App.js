@@ -2,7 +2,7 @@ import React, { useState, useEffect, useReducer, useMemo } from 'react';
 import PokemonGallery from './component/PokemonGallery';
 import PokemonDetails from './component/PokemonDetails';
 
-// 使用 pokemonReducer 管理整個寶可夢列表
+// 使用 pokemonReducer 管理整個寶可夢狀態
 const pokemonReducer = (state, action) => {
   switch (action.type) {
     case 'FEED':
@@ -32,6 +32,7 @@ const pokemonReducer = (state, action) => {
   }
 };
 
+// 搜尋欄位
 function SearchBar({ onSearch }){
   const [query, setQuery] = useState('');
 
@@ -51,7 +52,7 @@ function App() {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // 過濾寶可夢
+  // 使用useMemo優化搜尋寶可夢
   const filteredPokemon = useMemo(() => {
     return pokemon.filter(
       p => p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -85,7 +86,7 @@ function App() {
     }
 
     const interval = setInterval(() => {
-      setpokemon({ type: 'UPDATE_TIME' }); // 更新寶可夢的時間邏輯可以根據需求擴展
+      setpokemon({ type: 'UPDATE_TIME' });
     }, 5000);
 
     return () => clearInterval(interval);
