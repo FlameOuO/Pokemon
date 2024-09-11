@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useReducer, useMemo } from 'react';
 import PokemonGallery from './component/PokemonGallery';
 import PokemonDetails from './component/PokemonDetails';
+import './css/App.css';
 
 // 使用 pokemonReducer 管理整個寶可夢狀態
 const pokemonReducer = (state, action) => {
@@ -42,7 +43,7 @@ function SearchBar({ onSearch }){
   };
 
   return (
-    <input type="text" value={query} onChange={handleSearch} placeholder='搜尋寶可夢' />
+    <input className='searchbar' type="text" value={query} onChange={handleSearch} placeholder='搜尋寶可夢' />
   );
 }
 
@@ -128,10 +129,15 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='container'>
+      <div className='header'>
       <h1>Pokemon</h1>
       <SearchBar onSearch={setSearchTerm} />
+      </div>
+      <div className='content'>
+      <div></div>
       <PokemonGallery pokemon={filteredPokemon} onSelect={setSelectedPokemon} />
+
       {selectedPokemon && (
         <PokemonDetails
           pokemon={selectedPokemon}
@@ -140,6 +146,7 @@ function App() {
           onPlay={handlePlay}
         />
       )}
+      </div>
     </div>
   );
 }
