@@ -5,7 +5,8 @@
   position: absolute;
   top: 0;
   width: 100vw;
-
+  grid-template-rows: 1fr 10fr 1fr ;
+  background-color:lightcyan ;
 }
 .header {
   display: grid;
@@ -21,15 +22,26 @@
 .content {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
-  margin-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
+  place-content: center;
 }
 .gallery {
   display: grid;
-  
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));;
   grid-gap: 10px;
   margin-left: 50px;
   margin-right: 50px;
+}
+.card{
+  display:grid ;
+  grid-template-rows:1fr 1fr 1fr 1fr ;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: azure;
+  padding: 10px;
+  margin: 5px;
+  height: 275px;
+  place-content: center;
+  justify-items: center;
 }
