@@ -155,7 +155,7 @@ function App() {
       </div>
       {selectedPokemon && (
   <>
-    <p>Current audio URL: {selectedPokemon.audioUrl}</p> {/* 打印音頻 URL */}
+    <p>Current audio URL: {selectedPokemon.audioUrl}</p>
     <AudioPlayer audioUrl={selectedPokemon.audioUrl} />
   </>
 )}    </div>

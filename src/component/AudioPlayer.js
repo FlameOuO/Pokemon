@@ -13,8 +13,8 @@ function AudioPlayer({ audioUrl }) {
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.pause();  // 確保上次的音頻被暫停
-      audioRef.current.currentTime = 0;  // 將播放時間重置為 0
+      audioRef.current.pause();  
+      audioRef.current.currentTime = 0;  
       setIsPlaying(false);
     }
   }, [audioUrl]);

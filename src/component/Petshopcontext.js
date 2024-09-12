@@ -3,8 +3,8 @@ import React, { createContext, useState } from 'react';
 const PetShopContext = createContext();
 
 export function PetShopProvider({ children }) {
-  const [money, setMoney] = useState(1000);  // 初始化資金
-  const [inventory, setInventory] = useState([]);  // 商品庫存
+  const [money, setMoney] = useState(1000);  
+  const [inventory, setInventory] = useState([]);  
 
   const value = {
     money,
