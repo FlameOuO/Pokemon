@@ -79,7 +79,8 @@ function App() {
           health: Math.floor(Math.random() * 100) + 1,
           hunger: Math.floor(Math.random() * 100) + 1,
           mood: Math.floor(Math.random() * 100) + 1,
-          sprite: p.sprites.front_default
+          sprite: p.sprites.front_default,
+          audioUrl: `/audio/${p.name.toLowerCase()}.mp3`
         }));
         setpokemon({ type: 'SET_POKEMON', pokemon: pokemondata });
       };
