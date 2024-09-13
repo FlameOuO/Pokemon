@@ -84,7 +84,7 @@ function App() {
           hunger: Math.floor(Math.random() * 100) + 1,
           mood: Math.floor(Math.random() * 100) + 1,
           sprite: p.sprites.front_default,
-          audioUrl: `/audio/${p.name.toLowerCase()}.mp3`,
+          audioUrl: `./audio/${p.name.toLowerCase()}.mp3`,
         }));
         setpokemon({ type: 'SET_POKEMON', pokemon: pokemondata });
       };
@@ -107,6 +107,7 @@ function App() {
 
   useEffect(() => {
     if (selectedPokemon) {
+      console.log('選擇的寶可夢:', selectedPokemon);
       const updatedSelected = pokemon.find(p => p.name === selectedPokemon.name);
       if (updatedSelected) {
         setSelectedPokemon(updatedSelected);
@@ -155,8 +156,11 @@ function App() {
       </div>
       {selectedPokemon && (
   <>
-    <p>Current audio URL: {selectedPokemon.audioUrl}</p>
+    <div className='audiocontainer'>
+    <p>當前寶可夢: {selectedPokemon.audioUrl}</p>
+    
     <AudioPlayer audioUrl={selectedPokemon.audioUrl} />
+    </div>
   </>
 )}    </div>
     </PetShopProvider>

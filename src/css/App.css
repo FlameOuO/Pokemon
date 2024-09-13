@@ -56,3 +56,18 @@
   place-content: center;
   justify-items: center;
 }
+.audiocontainer
+{
+  display:grid ;
+  grid-template-rows:auto auto;
+  background-color: azure;
+  padding: 10px;
+  margin: 5px;
+  place-content: center;
+  justify-items: center;
+}
+.audiocontent{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  justify-items: center;
+}
