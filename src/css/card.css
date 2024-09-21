@@ -1,0 +1,29 @@
+.card {
+	display: grid;
+	grid-template-rows: 2fr 1fr 1fr 1fr;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: azure;
+	padding: 10px;
+	height: 275px;
+	width: 25%;
+	align-items: start; /* Align items to the start of each grid row */
+	justify-items: center; /* Keep horizontal centering */
+}
+
+@media (max-width: 1024px) {
+	.card {
+		width: 50%;
+	}
+}
+
+@media (max-width: 768px) {
+	.card {
+		width: 50%;
+	}
+}
+@media (max-width: 500px) {
+	.card {
+		width: 100%;
+	}
+}

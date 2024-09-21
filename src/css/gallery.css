@@ -1,0 +1,7 @@
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 10px;
+  /* grid-template-columns: repeat(4, minmax(200px, 1fr)); Default for desktop: 4 cards */
+}
