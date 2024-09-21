@@ -114,7 +114,7 @@ function App() {
           hunger: Math.floor(Math.random() * 100) + 1,
           mood: Math.floor(Math.random() * 100) + 1,
           sprite: p.sprites.front_default,
-          audioUrl: `${p.name.toLowerCase()}.mp3`,
+          audioName: `${p.name.toLowerCase()}.mp3`,
           adopted: true,
 
         }));

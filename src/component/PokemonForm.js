@@ -29,7 +29,7 @@ function PokemonForm({ onAdopt }) {
                 hunger: Math.floor(Math.random() * 100) + 1,
                 mood: Math.floor(Math.random() * 100) + 1,
                 sprite: data.sprites.front_default,
-                audioUrl: `${data.name.toLowerCase()}.mp3`,
+                audioName: `${data.name.toLowerCase()}.mp3`,
                 adopted: true,
             };
 
@@ -49,24 +49,24 @@ function PokemonForm({ onAdopt }) {
 
     return (
         <>
-            <div>
-                <button className='formbutton' onClick={() => setShowForm(!showForm)}>
+            <div className='formcontainer'>
+                <button className='formopenbutton' onClick={() => setShowForm(!showForm)}>
                     {showForm ? '隱藏表單' : '新增寶可夢'}
                 </button>
 
                 {showForm && (
                     <form onSubmit={handleSubmit}>
-                        <div>
+                        <div className='formcontent'>
                             <label>寶可夢ID：</label>
                             <input
                                 type="number"
                                 value={pokemonId}
                                 onChange={(e) => setPokemonId(e.target.value)}
                             />
+                            <button type="submit" disabled={loading}>
+                                {loading ? '抓取中...' : '領養寶可夢'}
+                            </button>
                         </div>
-                        <button className='formbutton' type="submit" disabled={loading}>
-                            {loading ? '抓取中...' : '領養寶可夢'}
-                        </button>
                     </form>
                 )}
             </div>

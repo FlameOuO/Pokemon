@@ -1,5 +1,44 @@
-.formbutton{
-    background-color: azure;
-    border: 1px solid black;
+.form{
+    display: grid;
+    place-content: center;
+}
+
+.formopenbutton{
+    display: grid;
+    background-color: lightcyan;
+    border: none;
     border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.formopenbutton:hover{
+    background-color: lightblue;
+}
+
+.formcontent{
+    display: grid;
+    font-size: 20px;
+    background-color: azure;
+    padding: 10px;
+    place-content: center;
+    grid-template-rows: auto auto auto;
+    grid-gap: 10px;
+    font-weight: bold;
+}
+.formcontent input{
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 100px;
+    max-width: 200px;
+}
+.formcontent button{
+    display: grid;
+    background-color: azure;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.formcontent button:hover{
+    background-color: lightblue;
 }
