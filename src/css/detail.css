@@ -1,7 +1,7 @@
 .details {
   position: fixed;
   right: 50px;
-  top: 60px;
+  top: 50px;
   display:grid ;
   grid-template-rows:auto auto auto auto auto auto auto;
   background-color: azure;

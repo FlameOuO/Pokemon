@@ -80,7 +80,6 @@ function App() {
   const [pokemon, setpokemon] = useReducer(pokemonReducer, []);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [showForm, setShowForm] = useState(false);
 
 
   // 使用useMemo優化搜尋寶可夢
@@ -95,7 +94,7 @@ function App() {
   // 初始化資料或從 localStorage 讀取寶可夢
   useEffect(() => {
     const TIME_DECREMENT = 5000;
-    
+
     const savedPokemon = JSON.parse(localStorage.getItem('pokemonData'));
     if (savedPokemon) {
       setpokemon({ type: 'SET_POKEMON', pokemon: savedPokemon });
@@ -130,7 +129,7 @@ function App() {
 
     return () => clearInterval(interval);
   }, []);
-  
+
 
   // 同步 localStorage
   useEffect(() => {
@@ -140,7 +139,7 @@ function App() {
   }, [pokemon]);
 
   useEffect(() => {
-    const EVENT_FREQUENCY = 10000;
+    const EVENT_FREQUENCY = 30000;
     const randomEventInterval = setInterval(() => {
       const randomEvent = Math.random();
       if (randomEvent > 0.8) {
@@ -149,7 +148,7 @@ function App() {
         alert("寶可夢生病了！");
       }
     }, EVENT_FREQUENCY); // 每10秒觸發一次事件
-  
+
     return () => clearInterval(randomEventInterval);
   }, []);
 
@@ -163,7 +162,7 @@ function App() {
     }
   }, [pokemon, selectedPokemon]);
 
-  
+
 
   // 餵食、餵水、陪玩功能
   const handleFeed = useCallback(() => {
@@ -199,9 +198,6 @@ function App() {
     // 更新 localStorage
     const updatedPokemon = [...pokemon, newPokemon];
     localStorage.setItem('pokemonData', JSON.stringify(updatedPokemon));
-
-    // 提交後隱藏表單
-    setShowForm(false);
   };
 
   useEffect(() => {
@@ -233,9 +229,8 @@ function App() {
             pokemon={filteredPokemon}
             onSelect={setSelectedPokemon}
           />
-          <div>
+
           <PokemonForm onAdopt={handleAdopt} />
-          </div>
           <div class="content-detail">
             {selectedPokemon && (
               <PokemonDetails

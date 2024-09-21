@@ -33,10 +33,10 @@ function PokemonForm({ onAdopt }) {
                 adopted: true,
             };
 
-            // 調用父組件的函數來新增寶可夢
+
             alert('成功抓取寶可夢！');
             onAdopt(newPokemon);
-            // 清空表單
+
             setPokemonId('');
             setShowForm(false);
         } catch (error) {
