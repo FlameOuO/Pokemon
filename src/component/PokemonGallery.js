@@ -1,6 +1,6 @@
 import React from 'react';
 import PokemonCard from './PokemonCard';
-import '../css/App.css'
+
 
 function PokemonGallery({ pokemon, onSelect }) {
   return (

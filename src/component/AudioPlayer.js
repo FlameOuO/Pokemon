@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { IoMdPlay,IoMdPause  } from "react-icons/io";
-import '../css/App.css';
+
 
 function AudioPlayer({ audioUrl }) {
   const audioRef = useRef(null);
@@ -40,8 +40,7 @@ function AudioPlayer({ audioUrl }) {
   };
 
   return (
-    <div className='audiocontent'>
-        <div></div>
+    <div className='audioContent'>
         <div onClick={isPlaying ? handlePause : handlePlay}>
         {isPlaying ? <IoMdPause size={'30px'}/> :<IoMdPlay size={'30px'}/>}
         </div>
