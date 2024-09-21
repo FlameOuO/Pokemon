@@ -34,10 +34,11 @@ function PokemonForm({ onAdopt }) {
             };
 
             // 調用父組件的函數來新增寶可夢
+            alert('成功抓取寶可夢！');
             onAdopt(newPokemon);
-
             // 清空表單
             setPokemonId('');
+            setShowForm(false);
         } catch (error) {
             console.error('從API抓取寶可夢數據失敗:', error);
             alert('抓取失敗，請確認輸入的ID是否正確');
@@ -48,23 +49,29 @@ function PokemonForm({ onAdopt }) {
 
     return (
         <>
-            <button className='formbutton' onClick={() => setShowForm(!showForm)}>
-                {showForm ? '隱藏表單' : '新增寶可夢'}
-            </button>
-            
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>寶可夢ID：</label>
-                    <input
-                        type="number"
-                        value={pokemonId}
-                        onChange={(e) => setPokemonId(e.target.value)}
-                    />
-                </div>
-                <button className='formbutton' type="submit" disabled={loading}>
-                    {loading ? '抓取中...' : '領養寶可夢'}
+            <div>
+                <button className='formbutton' onClick={() => setShowForm(!showForm)}>
+                    {showForm ? '隱藏表單' : '新增寶可夢'}
                 </button>
-            </form>
+
+                {showForm && (
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label>寶可夢ID：</label>
+                            <input
+                                type="number"
+                                value={pokemonId}
+                                onChange={(e) => setPokemonId(e.target.value)}
+                            />
+                        </div>
+                        <button className='formbutton' type="submit" disabled={loading}>
+                            {loading ? '抓取中...' : '領養寶可夢'}
+                        </button>
+                    </form>
+                )}
+            </div>
+
+
         </>
     );
 }
